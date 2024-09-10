@@ -1,5 +1,5 @@
 # psy1903
 
-## Your Name Here
+## Wendy Carballo
 
 Course work for psy1903
