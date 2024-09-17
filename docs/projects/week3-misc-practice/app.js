@@ -1,4 +1,6 @@
-// MISC Practice Part A
+// MISC Practice 
+
+// Part A
 
 let num1 = Math.floor(Math.random() * 10) + 1;
 let num2 = Math.floor(Math.random() * 10) + 1;
@@ -18,7 +20,7 @@ if (response == correctAnswer) {
 
 alert(feedback + " The expected answer is " + correctAnswer + "!");
 
-// MISC Practice Part B
+// Part B
 
 let age = prompt('How old are you?');
 
@@ -29,3 +31,14 @@ if (age < 12) {
 } else {
     alert('Adult');
 }
+
+// Part C 
+
+// Write code that prompts the user to enter a whole number.
+let userNum = prompt("Enter an even number");
+if (userNum % 2 == 0) {
+    alert(userNum + " is an even number");
+} else {
+    alert(userNum + " is an odd number");
+}
+
