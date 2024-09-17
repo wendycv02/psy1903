@@ -1,3 +1,5 @@
+// MISC Practice Part A
+
 let num1 = Math.floor(Math.random() * 10) + 1;
 let num2 = Math.floor(Math.random() * 10) + 1;
 
@@ -15,3 +17,15 @@ if (response == correctAnswer) {
 }
 
 alert(feedback + " The expected answer is " + correctAnswer + "!");
+
+// MISC Practice Part B
+
+let age = prompt('How old are you?');
+
+if (age < 12) {
+    alert('Child');
+} else if (age >= 12 && age < 18) {
+    alert('Teenager');
+} else {
+    alert('Adult');
+}
