@@ -57,15 +57,35 @@
 
 // getOddNumbers 
 
-function getOddNumbers(numbers) {
+// function getOddNumbers(numbers) {
+//     let results = [];
+//     for (let number of numbers) {
+//         if (number % 2 == 1) {
+//             results.push(number);
+//         }
+//     }
+//     return results;
+// }
+
+// console.log(getOddNumbers([1, 2, 3, 4, 5])); // Expected output: [1, 3, 5]
+// console.log(getOddNumbers([12, 45, 10, 11, 61])); // Expected output: [45, 11, 61]
+
+// filterNumbers 
+
+function filterNumbers(numbers, evenOrOdd) {
     let results = [];
     for (let number of numbers) {
-        if (number % 2 == 1) {
-            results.push(number)
+        if (evenOrOdd == 'even' && number % 2 == 0) {
+            results.push(number);
+        } else if (evenOrOdd == 'odd' && number % 2 == 1) {
+            results.push(number);
         }
     }
     return results;
 }
 
-console.log(getOddNumbers([1, 2, 3, 4, 5])); // Expected output: [1, 3, 5]
-console.log(getOddNumbers([12, 45, 10, 11, 61])); // Expected output: [45, 11, 61]
+console.log(filterNumbers([1, 2, 3, 4, 5], 'even')); // Expected output: [2, 4]
+console.log(filterNumbers([1, 2, 3, 4, 5], 'odd')); // Expected output: [1, 3, 5]
+
+console.log(filterNumbers([45, 10, 11, 61], 'even')); // Expected output: [10]
+console.log(filterNumbers([45, 10, 11, 61], 'odd')); // Expected output: [45, 11, 61]
