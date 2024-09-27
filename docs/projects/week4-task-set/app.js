@@ -13,13 +13,27 @@
 
 // convertTemp
 
-function convertTemp(temp, convertTo) {
-    if (convertTo == 'c') {
-        return ((temp - 32) / 1.8);
-    } else {
-        return ((temp * 1.8) + 32);
+// function convertTemp(temp, convertTo) {
+//     if (convertTo == 'c') {
+//         return ((temp - 32) / 1.8);
+//     } else {
+//         return ((temp * 1.8) + 32);
+//     }
+// }
+
+// console.log(convertTemp(10, 'c'));
+// console.log(convertTemp(10, 'f'));
+
+// getWordLengths 
+
+let words = ['apple', 'banana', 'cherry', 'pear', 'grape'];
+let lengths = [];
+
+function getWordLengths(words) {
+    for (let word of words) {
+        lengths.push(word.length);
     }
+    return lengths;
 }
 
-console.log(convertTemp(10, 'c'));
-console.log(convertTemp(10, 'f'));
+console.log(getWordLengths(words)); // Expected output: [5, 6, 6, 4, 5]
