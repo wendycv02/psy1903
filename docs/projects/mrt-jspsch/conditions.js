@@ -1,8 +1,8 @@
 let conditions = [];
 
 for (i = 0; i < 3; i++) {
-    let num1 = getRandomNumber(10, 1);
-    let num2 = getRandomNumber(10, 1);
+    let num1 = getRandomNumber(1, 10);
+    let num2 = getRandomNumber(1, 10);
     let condition = {
         num1: num1,
         num2: num2,
