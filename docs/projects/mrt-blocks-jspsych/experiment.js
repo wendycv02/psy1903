@@ -6,11 +6,11 @@ let timeline = [];
 let welcomeTrial = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: `
-    <h1>Welcome to the Math Response Time Task!</h1> 
+    <h1 class='expTitle'>Welcome to the Math Response Time Task!</h1> 
     <p>In this experiment, you will be shown a series of math questions.</p>
     <p>There are three parts to this experiment; the questions will increase in difficulty with each part.</p>
     <p>Please answer as quickly and accurately as possible.</p>
-    <p>Press SPACE to begin.</p>
+    <p>Press <span class='key'>SPACE</span> to begin.</p>
     `,
     choices: [' '],
 };
@@ -33,7 +33,7 @@ for (let block of conditions) {
     for (let condition of blockConditions) {
         let conditionTrial = {
             type: jsPsychSurveyHtmlForm,
-            preamble: `<p>What is ${condition.num1} + ${condition.num2}?</p>`,
+            preamble: `<p>What is <span class='equation'><span class='num1'>${condition.num1}</span> + <span class='num2'>${condition.num2}</span></span>?</p>`,
             html: `<p><input type="text" id="userResponse" name="userResponse" size="10" /></p>`,
             autofocus: 'userResponse',
             button_label: 'Submit Answer',
