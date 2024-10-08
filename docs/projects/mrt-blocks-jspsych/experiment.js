@@ -16,6 +16,29 @@ let welcomeTrial = {
 };
 timeline.push(welcomeTrial);
 
+
+
+// Questionairre 
+
+let likertScale = [
+    "Strongly Disagree",
+    "Disagree",
+    "Neutral",
+    "Agree",
+    "Strongly Agree"
+];
+
+let questionairre = {
+    type: jsPsychSurveyLikert,
+    questions: [
+        { prompt: "1. I enjoy solving math problems.", labels: likertScale },
+        { prompt: "2. I find math easy.", labels: likertScale },
+    ],
+    randomize_question_order: false
+};
+
+timeline.push(questionairre);
+
 // Condition 
 for (let block of conditions) {
     let blockIntroTrial = {
