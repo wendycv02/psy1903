@@ -1,7 +1,7 @@
-# Name of project
+# The Green Giant Experiment
 
 ## Created by
-List your team member names here...
+Kayla Saucedo and Wendy Carballo
 
 ## Description
-Include a brief description of the project...
+This project aims to understand the implicit associations individuals may have between "healthy" and "unhealthy" foods and a person's physical body/appearance.
