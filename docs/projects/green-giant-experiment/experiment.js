@@ -43,11 +43,11 @@ let primingTask = {
     `,
     choices: [' '],
     data: {
+        collect: true,
+        trialType: 'prime',
         displayedVideo: selectedVideo.label
     }
 };
-
-console.log(primingTask)
 
 timeline.push(primingTask);
 
@@ -79,7 +79,11 @@ let questionnaireA = {
         { prompt: "I make unhealthy choices when eating.", labels: likertScaleA },
         { prompt: "I have an unhealthy body.", labels: likertScaleA },
     ],
-    randomize_question_order: false
+    randomize_question_order: false,
+    data: {
+        collect: true,
+        trialType: 'questionnairePartA'
+    }
 };
 
 let questionnaireB = {
@@ -93,8 +97,13 @@ let questionnaireB = {
         { prompt: "How often do you have home-cooked meals? ", labels: likertScaleB },
         { prompt: "How often do you eat fast food meals? ", labels: likertScaleB },
     ],
-    randomize_question_order: false
+    randomize_question_order: false,
+    data: {
+        collect: true,
+        trialType: 'questionnairePartB'
+    }
 };
+
 timeline.push(questionnaireA, questionnaireB);
 
 // Task 3: IAT
@@ -124,9 +133,9 @@ for (let block of conditions) {
         type: jsPsychHtmlKeyboardResponse,
         stimulus: `
         <h1>Part ${partNumber++}</h1>
-        <p>In this part, the two categories will be: ${leftCategory} and ${rightCategory}.</p>
-        <p>If the word you see in the middle of the screen should be sorted into the ${leftCategory}, press the <span class='key'>F</span> key</p>
-        <p>If the word should be sorted into the ${rightCategory}, press the <span class='key'>J</span> key</p>
+        <p>In this part, the two categories will be: <span class="bold-text">${leftCategory}</span> and <span class="bold-text">${rightCategory}</span>.</p>
+        <p>If the word you see in the middle of the screen should be sorted into the <span class="bold-text">${leftCategory}</span>, press the <span class='key'>F</span> key</p>
+        <p>If the word should be sorted into the <span class="bold-text">${rightCategory}</span>, press the <span class='key'>J</span> key</p>
         <p>Press <span class='key'>SPACE</span> to begin.</p>
         `,
         choices: [' '],
@@ -135,9 +144,11 @@ for (let block of conditions) {
 
     for (let trial of block.trials) {
 
-        let trialScreen = {
+        let blockTrial = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: `
+            <p><span class="bold-text">${leftCategory}</span> (Press F)</p>
+            <p><span class="bold-text">${rightCategory}</span> (Press J)</p>
             <p>${trial.word}</p>
             `,
             choices: ['f', 'j'],
@@ -158,7 +169,7 @@ for (let block of conditions) {
                 }
             }
         };
-        timeline.push(trialScreen);
+        timeline.push(blockTrial);
     }
 }
 
@@ -173,7 +184,7 @@ let resultsTrial = {
         `,
     on_start: function () {
         //  ⭐ Update the following three values as appropriate ⭐
-        let prefix = 'mrt';
+        let prefix = 'iat';
         let dataPipeExperimentId = 'your-experiment-id-here';
         let forceOSFSave = false;
 
