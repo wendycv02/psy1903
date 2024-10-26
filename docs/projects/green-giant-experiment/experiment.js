@@ -203,8 +203,8 @@ let resultsTrial = {
     on_start: function () {
         //  ⭐ Update the following three values as appropriate ⭐
         let prefix = 'iat';
-        let dataPipeExperimentId = 'your-experiment-id-here';
-        let forceOSFSave = false;
+        let dataPipeExperimentId = 'c4Dswx1nj5mF';
+        let forceOSFSave = true;
 
         // Filter and retrieve results as CSV data
         let results = jsPsych.data
