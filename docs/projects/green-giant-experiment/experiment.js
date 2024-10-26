@@ -144,12 +144,17 @@ for (let block of conditions) {
 
     for (let trial of block.trials) {
 
-        let blockTrial = {
+        // Word Trial
+        let wordTrial = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: `
-            <p><span class="bold-text">${leftCategory}</span> (Press F)</p>
-            <p><span class="bold-text">${rightCategory}</span> (Press J)</p>
-            <p>${trial.word}</p>
+            <div class="trial-container">
+                <div class="categories">
+                    <span class="category"><span class="bold-text">${leftCategory}</span> (press F)</span>
+                    <span class="category"><span class="bold-text">${rightCategory}</span> (press J)</span>
+                </div>
+                <div class="word">${trial.word}</div>
+            </div>
             `,
             choices: ['f', 'j'],
             data: {
@@ -169,9 +174,22 @@ for (let block of conditions) {
                 }
             }
         };
-        timeline.push(blockTrial);
+        timeline.push(wordTrial);
+
+        // Fixation Trial
+        let fixationTrial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: `
+            <p><span class="plus-symbol"><span class="bold-text">+</span></span></p>
+            `,
+            trial_duration: 250,
+            stimulus_duration: 250,
+            choices: ['NO KEYS']
+        };
+        timeline.push(fixationTrial);
     }
 }
+
 
 // Results 
 let resultsTrial = {
