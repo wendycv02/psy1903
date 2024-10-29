@@ -1,4 +1,6 @@
-let jsPsych = initJsPsych();
+let jsPsych = initJsPsych({
+    show_progress_bar: true
+});
 
 let timeline = [];
 
@@ -88,7 +90,7 @@ let questionnaireA = {
 
 let questionnaireB = {
     type: jsPsychSurveyLikert,
-    preamble: '<h1>Task 2 of 3 (Continued...)</h1><p>Please answer the following items on a scale of "Never" (1) to "Frequently Agree" (5).</p>',
+    preamble: '<h1>Task 2 of 3 (Continued...)</h1><p>Please answer the following items on a scale of "Never" (1) to "Very Frequently" (5).</p>',
     questions: [
         { prompt: "How often do you think about your diet?", labels: likertScaleB },
         { prompt: "How often do you eat foods with high sugar/fat?", labels: likertScaleB },
@@ -253,11 +255,12 @@ let debriefTrial = {
     `,
     choices: ['NO KEYS'],
     on_start: function () {
+        jsPsych.progressBar.progress = 1;
         let data = jsPsych.data
             .get()
             .filter({ collect: true })
             .ignore(['response', 'stimulus', 'trial_type', 'trial_index', 'plugin_version', 'collect'])
-            .csv();
+            .csv()
         console.log(data);
     }
 }
