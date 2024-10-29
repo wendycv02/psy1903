@@ -101,6 +101,40 @@ let responseTrialC = {
 }
 timeline.push(responseTrialC);
 
+let resultsTrial = {
+    type: jsPsychHtmlKeyboardResponse,
+    choices: ['NO KEYS'],
+    async: false,
+    stimulus: `
+        <h1>Please wait...</h1>
+        <span class='loader'></span>
+        <p>We are saving the results of your inputs.</p>
+        `,
+    on_start: function () {
+
+        // Filter and retrieve results as CSV data
+        let results = jsPsych.data
+            .get()
+            .filter({ collect: true })
+            .ignore(['stimulus', 'trial_type', 'plugin_version', 'collect'])
+            .csv();
+
+        console.log(results);
+
+        let prefix = 'plugin-demo';
+        let dataPipeExperimentId = 'rabgtJ4iEa1O';
+        let forceOSFSave = false;
+        let participantId = getCurrentTimestamp();
+        let fileName = prefix + '-' + participantId + '.csv';
+
+        saveResults(fileName, results, dataPipeExperimentId, forceOSFSave).then(response => {
+            jsPsych.finishTrial();
+        })
+
+    }
+}
+timeline.push(resultsTrial);
+
 // Debrief 
 let debriefTrial = {
     type: jsPsychHtmlKeyboardResponse,
@@ -108,7 +142,7 @@ let debriefTrial = {
     <h1>Thank you!</h1>
     <p>The experiment is now complete, you can close this tab.</p>
     `,
-    choices: [' '], // Press SPACE to close, or set to jsPsych.NO_KEYS if no response is desired
+    choices: [' '],
     on_start: function () {
         let data = jsPsych.data
             .get()
