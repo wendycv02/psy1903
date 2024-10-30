@@ -2,6 +2,7 @@ let jsPsych = initJsPsych();
 
 let timeline = [];
 
+let participantId = getCurrentTimestamp();
 
 // Welcome
 let welcomeTrial = {
@@ -138,10 +139,17 @@ timeline.push(resultsTrial);
 // Debrief 
 let debriefTrial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: `
-    <h1>Thank you!</h1>
-    <p>The experiment is now complete, you can close this tab.</p>
-    `,
+    stimulus: function (data) {
+
+        let linkToQualtricsSurvey = `https://harvard.az1.qualtrics.com/jfe/form/SV_6g71xtYlTcciHsi?experimentParticipantId=${participantId}`
+        return `
+        <h1>Thank you!</h1>
+        <p>
+            To complete your response, 
+            please follow <a href='${linkToQualtricsSurvey}'>this link</a> 
+            and complete the survey you see there.
+        </p>
+    `},
     choices: [' '],
     on_start: function () {
         let data = jsPsych.data
