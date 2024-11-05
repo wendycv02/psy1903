@@ -82,7 +82,7 @@ let questionnaire = {
     <p> Please answer the following items on a scale of 'Not at all True of Myself' (1) to "About Halfway True of Myself" (3) to "Completely True of Myself' (5). </p>
     `,
     questions: [
-        { prompt: "I think my body is unattractive.", labels: likertScaleA },
+        { prompt: "I think my body is unattractive.", labels: likertScale },
         { prompt: "How well my body is functioning influences the way I feel about my body.", labels: likertScale },
         { prompt: "Having a well-proprtioned body is importatnt to me.", labels: likertScale },
         { prompt: "My overall fitness level is high.", labels: likertScale },
