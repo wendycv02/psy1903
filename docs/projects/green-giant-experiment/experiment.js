@@ -4,6 +4,21 @@ let jsPsych = initJsPsych({
 
 let timeline = [];
 
+
+// Consent Screen
+
+let consentScreen = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <h1>Consent Form: </h1> 
+    <p>This experiment is an educational exercise about learning to program and analyze a psychological experiment and not a “real” scientific experiment. No identifying information is collected, and data will not be shared beyond our class. If you agree to help out by completing the tasks and questionnaires, please continue. Otherwise, you may close this tab. If you have any questions, please reach out to Dr. Garth Coombs <garthcoombs@fas.harvard.edu>, one of the head instructors of PSY 1903: Programming for Psychological Scientists.</p>
+    <p>Press <span class='key'>SPACE</span> to proceed.</p>
+    `,
+    choices: [' '],
+};
+
+timeline.push(consentScreen);
+
 // Welcome
 let welcomeTrial = {
     type: jsPsychHtmlKeyboardResponse,
@@ -54,59 +69,40 @@ let primingTask = {
 timeline.push(primingTask);
 
 // Task 2: Questionnaire 
-let likertScaleA = [
-    "Strongly Disagree (1)",
-    "Disagree",
-    "Neutral (3)",
-    "Agree",
-    "Strongly Agree (5)"
+let likertScale = [
+    "Not at all True of Myself (1)",
+    "Slightly True of Myself",
+    "About Halfway True of Myself (3)",
+    "Mostly True of Myself",
+    "Completely True of Myself (5)"
 ];
-
-let likertScaleB = [
-    "Never (1)",
-    "Very Rarely",
-    "Occasionally (3)",
-    "Frequently",
-    "Very Frequently (5)"
-];
-
-let questionnaireA = {
+let questionnaire = {
     type: jsPsychSurveyLikert,
-    preamble: '<h1>Task 2 of 3</h1><p>Please answer the following items on a scale of "Strongly Disagree" (1) to "Strongly Agree" (5).</p>',
+    preamble: `<h1> Task 2 of 3 </h1>
+    <p> Please answer the following items on a scale of 'Not at all True of Myself' (1) to "About Halfway True of Myself" (3) to "Completely True of Myself' (5). </p>
+    `,
     questions: [
-        { prompt: "How strongly do you feel it is important to have a healthy diet?", labels: likertScaleA },
-        { prompt: "How strongly do you believe your food intake impacts your physical appearance and body?", labels: likertScaleA },
-        { prompt: "How much do you agree with the following statements: I make healthy choices when eating.", labels: likertScaleA },
-        { prompt: "I have a healthy body.", labels: likertScaleA },
-        { prompt: "I make unhealthy choices when eating.", labels: likertScaleA },
-        { prompt: "I have an unhealthy body.", labels: likertScaleA },
+        { prompt: "I think my body is unattractive.", labels: likertScaleA },
+        { prompt: "How well my body is functioning influences the way I feel about my body.", labels: likertScale },
+        { prompt: "Having a well-proprtioned body is importatnt to me.", labels: likertScale },
+        { prompt: "My overall fitness level is high.", labels: likertScale },
+        { prompt: "I compare my body to people I'm close to.", labels: likertScale },
+        { prompt: "My naked body makes me feel sad.", labels: likertScale },
+        { prompt: "I feel better about my body when I'm fitter.", labels: likertScale },
+        { prompt: "My body is healthy.", labels: likertScale },
+        { prompt: "My body is in shape.", labels: likertScale },
+        { prompt: "My body is overweight.", labels: likertScale },
     ],
+
     randomize_question_order: false,
     data: {
         collect: true,
-        trialType: 'questionnairePartA'
+        trialType: 'questionnaire'
     }
 };
 
-let questionnaireB = {
-    type: jsPsychSurveyLikert,
-    preamble: '<h1>Task 2 of 3 (Continued...)</h1><p>Please answer the following items on a scale of "Never" (1) to "Very Frequently" (5).</p>',
-    questions: [
-        { prompt: "How often do you think about your diet?", labels: likertScaleB },
-        { prompt: "How often do you eat foods with high sugar/fat?", labels: likertScaleB },
-        { prompt: "How often do you eat organic foods?.", labels: likertScaleB },
-        { prompt: "How often do you overeat past the point of being full?", labels: likertScaleB },
-        { prompt: "How often do you have home-cooked meals? ", labels: likertScaleB },
-        { prompt: "How often do you eat fast food meals? ", labels: likertScaleB },
-    ],
-    randomize_question_order: false,
-    data: {
-        collect: true,
-        trialType: 'questionnairePartB'
-    }
-};
 
-timeline.push(questionnaireA, questionnaireB);
+timeline.push(questionnaire);
 
 // Task 3: IAT
 
