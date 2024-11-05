@@ -8,8 +8,8 @@ let timeline = [];
 let welcomeTrial = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: `
-    <h1 class='welcome'> Welcome to the Green Giant Task!</h1> 
-    <p>In this experiment, you will complete the following two tasks:.</p>
+    <h1 class='welcome'> Welcome to the <span class= 'greengiant'>Green Giant Experiment</span>!</h1> 
+    <p>In this experiment, you will complete the following two tasks:</p>
     <div class="task-box">
         <li>In Task 1, you will be asked to watch two short videos.</li>
         <li>In Task 2, you will answer a brief set of questions.</li>
