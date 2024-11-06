@@ -1,0 +1,274 @@
+body {
+    background-color: #ffc0cb;
+    /* Light pink background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.birthday-cake {
+    position: relative;
+    top: 14px;
+    /* Adjusted to maintain centering */
+}
+
+.holder {
+    position: absolute;
+    width: 245px;
+    /* 70% of 350px */
+    height: 14px;
+    /* 70% of 20px */
+    border-radius: 70px;
+    /* 70% of 100px */
+    background-color: #212F3C;
+    left: -98px;
+    top: 7px;
+}
+
+.holder:before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    /* 70% of 100px */
+    height: 105px;
+    /* 70% of 150px */
+    background-color: #CACFD2;
+    left: 91px;
+    top: 14px;
+}
+
+.holder:after {
+    content: "";
+    position: absolute;
+    background-color: #ffc0cb;
+    /* Match pink background */
+    width: 70px;
+    height: 94.5px;
+    /* 70% of 135px */
+    border-radius: 21px 21px 0 0;
+    /* 70% of 30px */
+    left: 45.5px;
+    top: 14px;
+    box-shadow: 87.5px 0 #ffc0cb;
+    /* 70% of 125px */
+}
+
+.shadow {
+    position: absolute;
+    width: 245px;
+    height: 14px;
+    border-radius: 35px;
+    /* 70% of 50px */
+    top: 119px;
+    /* 70% of 170px */
+    left: -95px;
+    /* 70% of -135px */
+    background-color: rgba(0, 0, 0, 0.095);
+    z-index: 1;
+}
+
+.shadow:before {
+    content: "";
+    position: absolute;
+    background-color: #CACFD2;
+    width: 105px;
+    /* 70% of 150px */
+    height: 14px;
+    border-radius: 14px;
+    /* 70% of 20px */
+    top: -7px;
+    left: 67.2px;
+    /* 70% of 96px */
+}
+
+.cake {
+    position: absolute;
+    overflow: hidden;
+    width: 192.5px;
+    /* 70% of 275px */
+    height: 98px;
+    /* 70% of 140px */
+    background-color: #FAD7A0;
+    top: -91px;
+    /* 70% of -130px */
+    left: -70.7px;
+    /* 70% of -101px */
+    border-radius: 21px 21px 0 0;
+    /* 70% of 30px */
+}
+
+.cake:before {
+    content: "";
+    background-color: #935116;
+    width: 192.5px;
+    height: 10.5px;
+    /* 70% of 15px */
+    position: absolute;
+    top: 52.5px;
+    /* 70% of 75px */
+    box-shadow: 0 21px #935116;
+    /* 70% of 30px */
+}
+
+.cake:after {
+    content: "";
+    position: absolute;
+    background-color: #573612;
+    width: 192.5px;
+    height: 28px;
+    /* 70% of 40px */
+    box-shadow: inset 0 7px rgba(0, 0, 0, 0.07);
+    /* 70% of 10px */
+}
+
+.chocolate {
+    position: absolute;
+    background-color: #573612;
+    width: 17.5px;
+    /* 70% of 25px */
+    height: 31.5px;
+    /* 70% of 45px */
+    top: 17.5px;
+    /* 70% of 25px */
+    left: 0;
+    z-index: 2;
+    border-radius: 35px;
+    /* 70% of 50px */
+    box-shadow: 17.5px 1.4px #FAD7A0,
+        35px -7px #573612,
+        52.5px -3.5px #FAD7A0,
+        70px 2.1px #573612,
+        87.5px 0 #FAD7A0,
+        105px -3.5px #573612,
+        122.5px 2.1px #FAD7A0,
+        140px -3.5px #573612,
+        157.5px -7px #FAD7A0,
+        175px 2.8px #573612;
+}
+
+.candle {
+    position: absolute;
+    width: 10.5px;
+    /* 70% of 15px */
+    height: 49px;
+    /* 70% of 70px */
+    background-color: white;
+    top: -140px;
+    /* 70% of -200px */
+    left: 21px;
+    /* 70% of 30px */
+    box-shadow: inset 0 -7px 0 #E74C3C;
+    /* 70% of -10px */
+}
+
+/* Blown-out effect for candle */
+.candle.blown-out {
+    background-color: #ccc;
+    box-shadow: inset 0 -7px 0 #999;
+}
+
+.candle:before {
+    position: absolute;
+    width: 10.5px;
+    height: 10.5px;
+    background-color: #E74C3C;
+    content: "";
+    top: 7px;
+    box-shadow: 0 17.5px #E74C3C;
+    /* 70% of 25px */
+}
+
+.candle:after {
+    content: "";
+    width: 1.4px;
+    /* 70% of 2px */
+    height: 10.5px;
+    /* 70% of 15px */
+    position: absolute;
+    background-color: black;
+    top: -10.5px;
+    /* 70% of -15px */
+    left: 4.2px;
+    /* 70% of 6px */
+}
+
+/* Flame and blown-out effect */
+.flame {
+    position: absolute;
+    background-color: #F4D03F;
+    opacity: 0.9;
+    box-shadow: inset 0 -3.5px 3.5px #D35400, 3.5px -3.5px 14px #FBFFA3;
+    /* Adjusted inner and outer shadows */
+    width: 14px;
+    /* 70% of 20px */
+    height: 21px;
+    /* 70% of 30px */
+    top: -168px;
+    /* 70% of -240px */
+    border-radius: 50%;
+    left: 18.5px;
+    /* 70% of 26.5px */
+    animation: flame 0.5s infinite;
+}
+
+.flame.blown-out {
+    opacity: 0;
+    animation: none;
+}
+
+/* Flame flickering animation */
+@keyframes flame {
+
+    from,
+    to {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+
+/* Reset default padding and margin */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garland container at the very top */
+.garland-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
+
+.garland {
+    width: 80%;
+    /* Adjust as needed */
+    max-width: 600px;
+    height: auto;
+}
+
+/* Cake wrapper to control cake position */
+.cake-wrapper {
+    padding-top: 100px;
+    /* Add space below the garland */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
