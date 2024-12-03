@@ -185,7 +185,7 @@ dev.off()
 png("~/Desktop/psy1903/stats/data_cleaning/output/Fig5_ggplot_scatter.png")
 
 # Create plot 
-ggplot(data = dScores, aes(x = d_score, y = questionnaire)) +
+ggplot(data = dScores, aes(x = questionnaire, y = d_score)) +
   geom_point() +
   geom_smooth(method = lm) +
   labs(title = "Correlation Between Questionnaire and D-Scores", x = "Questionnaire", y = "D-Scores") +
